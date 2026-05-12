@@ -1,0 +1,214 @@
+.craps-table {
+  background: var(--felt-green);
+  border: 3px solid var(--felt-border);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Place numbers row */
+.craps-table__places {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+}
+
+/* Main area (Come, Don't Come, Field) */
+.craps-table__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 3px;
+}
+
+.craps-table__zone--field {
+  grid-column: 1 / -1;
+}
+
+/* Pass / Don't Pass row */
+.craps-table__pass-row {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3px;
+}
+
+/* Odds row */
+.craps-table__odds-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.craps-table__odds-marker {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Props section */
+.craps-table__props {
+  border-top: 2px solid var(--felt-border);
+  padding-top: 0.5rem;
+}
+
+.craps-table__props-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.1em;
+}
+
+.craps-table__props-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+/* Zone (clickable betting area) */
+.craps-table__zone {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+}
+
+.craps-table__zone:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent);
+}
+
+.craps-table__zone--pass {
+  background: rgba(230, 200, 71, 0.12);
+  border-color: rgba(230, 200, 71, 0.3);
+}
+
+.craps-table__zone--dp {
+  background: rgba(220, 38, 38, 0.12);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.craps-table__zone--come {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.craps-table__zone--dc {
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.craps-table__zone--field {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.craps-table__zone--odds {
+  background: rgba(230, 200, 71, 0.08);
+  border-color: rgba(230, 200, 71, 0.25);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.7rem;
+}
+
+.craps-table__zone--prop {
+  padding: 0.35rem 0.15rem;
+  font-size: 0.7rem;
+}
+
+.craps-table__zone-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.craps-table__zone--place .craps-table__zone-label {
+  font-size: 1rem;
+}
+
+.craps-table__zone-sub {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.15rem;
+}
+
+/* Chip marker on a zone */
+.craps-table__chip-marker {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 0.1rem 0.35rem;
+  border-radius: 10px;
+  margin-top: 0.2rem;
+}
+
+/* Puck */
+.craps-table__puck {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 0.55rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  top: 0.75rem;
+}
+
+.craps-table__puck--p4 { left: calc(0.75rem + 8.33%); }
+.craps-table__puck--p5 { left: calc(0.75rem + 24.99%); }
+.craps-table__puck--p6 { left: calc(0.75rem + 41.66%); }
+.craps-table__puck--p8 { left: calc(0.75rem + 58.33%); }
+.craps-table__puck--p9 { left: calc(0.75rem + 74.99%); }
+.craps-table__puck--p10 { left: calc(0.75rem + 91.66%); }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .craps-table {
+    padding: 0.5rem;
+    gap: 0.35rem;
+  }
+
+  .craps-table__zone {
+    min-height: 38px;
+    padding: 0.35rem 0.15rem;
+  }
+
+  .craps-table__zone-label {
+    font-size: 0.65rem;
+  }
+
+  .craps-table__zone--place .craps-table__zone-label {
+    font-size: 0.85rem;
+  }
+
+  .craps-table__props-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

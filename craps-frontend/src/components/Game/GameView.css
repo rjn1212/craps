@@ -1,0 +1,11 @@
+.game-view__roll-btn {
+  font-size: 1.1rem;
+  padding: 0.75rem 2.5rem;
+  min-width: 200px;
+}
+
+.game-view__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.5rem 0;
+}

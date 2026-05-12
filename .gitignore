@@ -1,0 +1,26 @@
+# Java
+target/
+*.class
+*.jar
+
+# Frontend
+node_modules/
+dist/
+node/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Static files copied during build
+craps-backend/src/main/resources/static/
+
+# Env
+.env
+
+# Claude Code local settings
+.claude/

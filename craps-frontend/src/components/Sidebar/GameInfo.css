@@ -1,0 +1,65 @@
+.game-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.game-info__bankroll {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.game-info__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.game-info__value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.game-info__row {
+  display: flex;
+  gap: 1rem;
+}
+
+.game-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.game-info__value--small {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.game-info__puck {
+  text-align: center;
+}
+
+.game-info__puck-on {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.game-info__puck-off {
+  display: inline-block;
+  background: #333;
+  color: #999;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}

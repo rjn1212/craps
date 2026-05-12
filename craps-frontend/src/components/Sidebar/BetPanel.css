@@ -1,0 +1,92 @@
+.bet-panel__label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.bet-panel__empty {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 0.5rem 0;
+}
+
+.bet-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.bet-panel__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.bet-panel__item--off {
+  opacity: 0.5;
+}
+
+.bet-panel__bet-info {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.bet-panel__bet-name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.bet-panel__bet-point {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.bet-panel__bet-off {
+  font-size: 0.6rem;
+  background: #555;
+  color: #aaa;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+.bet-panel__bet-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bet-panel__bet-amount {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.bet-panel__remove {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.bet-panel__remove:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}

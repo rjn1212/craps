@@ -1,0 +1,53 @@
+package com.gitgames.craps.config;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+
+@Component
+public class PlatformAuthFilter extends OncePerRequestFilter {
+
+    @Value("${platform.jwt.secret:}")
+    private String jwtSecret;
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                     HttpServletResponse response,
+                                     FilterChain chain) throws ServletException, IOException {
+        String authHeader = request.getHeader("Authorization");
+
+        if (authHeader != null && authHeader.startsWith("Bearer ") && !jwtSecret.isBlank()) {
+            String token = authHeader.substring(7);
+            try {
+                DecodedJWT jwt = JWT.require(Algorithm.HMAC256(jwtSecret))
+                        .withIssuer("game-platform")
+                        .build()
+                        .verify(token);
+
+                request.setAttribute("platformUserId", jwt.getSubject());
+                request.setAttribute("platformUsername", jwt.getClaim("username").asString());
+                request.setAttribute("platformUserEmail", jwt.getClaim("email").asString());
+                request.setAttribute("platformUserRole", jwt.getClaim("role").asString());
+            } catch (JWTVerificationException e) {
+                // Invalid token — continue as anonymous
+            }
+        }
+
+        chain.doFilter(request, response);
+    }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        return request.getRequestURI().startsWith("/platform/");
+    }
+}

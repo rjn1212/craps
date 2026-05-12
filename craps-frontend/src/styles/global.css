@@ -1,0 +1,12 @@
+/* Game-specific overrides — base styles from @gitgames/platform-sdk/theme.css */
+
+:root {
+  --felt-green: #1a6b37;
+  --felt-green-light: #1e7d40;
+  --felt-border: #0f4d25;
+  --chip-red: #cc2233;
+  --chip-blue: #2255cc;
+  --chip-green: #22aa44;
+  --chip-black: #222;
+  --chip-white: #eee;
+}

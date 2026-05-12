@@ -1,0 +1,49 @@
+.dice-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.dice-display__total {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.die {
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.die__dot {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  background: #222;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.die--rolling {
+  animation: diceShake 0.4s ease-in-out;
+}
+
+@keyframes diceShake {
+  0% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-15deg) scale(1.1); }
+  40% { transform: rotate(15deg) scale(1.1); }
+  60% { transform: rotate(-10deg) scale(1.05); }
+  80% { transform: rotate(10deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
